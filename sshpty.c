@@ -22,6 +22,11 @@
 #include "errno.h"
 #include "sshpty.h"
 
+#ifdef ANDROID_CHANGES
+/* openpty emulation in openpty.c */
+#define HAVE_OPENPTY
+#endif
+
 /* Pty allocated with _getpty gets broken if we do I_PUSH:es to it. */
 #if defined(HAVE__GETPTY) || defined(HAVE_OPENPTY)
 #undef HAVE_DEV_PTMX

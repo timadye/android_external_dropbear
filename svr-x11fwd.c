@@ -159,6 +159,7 @@ void x11setauth(struct ChanSess *chansess) {
 		return;
 	}
 
+#ifdef XAUTH_COMMAND
 	/* popen is a nice function - code is strongly based on OpenSSH's */
 	authprog = popen(XAUTH_COMMAND, "w");
 	if (authprog) {
@@ -168,6 +169,7 @@ void x11setauth(struct ChanSess *chansess) {
 	} else {
 		fprintf(stderr, "Failed to run %s\n", XAUTH_COMMAND);
 	}
+#endif
 }
 
 void x11cleanup(struct ChanSess *chansess) {

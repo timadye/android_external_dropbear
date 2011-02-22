@@ -281,7 +281,7 @@ static int checkusername(unsigned char *username, unsigned int userlen) {
 	usershell = ses.authstate.pw_shell;
 	if (usershell[0] == '\0') {
 		/* empty shell in /etc/passwd means /bin/sh according to passwd(5) */
-		usershell = "/bin/sh";
+		usershell = DEFAULT_SHELL;
 	}
 
 #ifdef ENABLE_VALID_SHELL_CHECK

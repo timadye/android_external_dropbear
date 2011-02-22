@@ -60,6 +60,9 @@
 
 #ifdef HAVE_UTMP_H
 #include <utmp.h>
+#ifdef ANDROID_CHANGES
+#define DEAD_PROCESS    8       /* Terminated process.  */
+#endif
 #endif
 
 #ifdef HAVE_UTMPX_H
